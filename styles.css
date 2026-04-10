@@ -1,0 +1,186 @@
+body {
+    background-color: rgb(216, 239, 255);
+    text-align:center;
+    list-style-position: inside;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(0, 61, 101);
+}
+
+#container{
+    width: 1000px;
+    margin: 30px auto;
+    background-color: rgb(173, 208, 234);
+    padding: 20px;
+    border: solid 5px rgb(0, 61, 101);
+    display: flex;          /* This aligns sidebar and main-content horizontally */
+    flex-direction: row;
+    align-items: flex-start; /* Keeps both columns aligned at the top */
+}
+
+h1 {
+    background-color: rgb(154, 202, 238);
+    background-image: linear-gradient(to bottom right, rgb(109, 163, 205), rgb(194, 230, 255));
+    /* margin is outside of the box, padding is inside of the box */
+    border: Solid 3px rgb(0, 61, 101); /* solid can be replaced by dashed*/
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 20px;
+    padding: 15px; /* first px is top bottom, second is left and right*/
+    text-align: center;
+    width: 1000px;  /*changes the width of the box, so doesn't take up entire screen */
+    margin: 30px auto;
+    position: relative;  
+    overflow: hidden;    
+}
+h3{
+    background-color: rgb(202, 233, 255);
+    /* margin is outside of the box, padding is inside of the box */
+    border: dotted 3px rgb(0, 61, 101); /* solid can be replaced by dashed*/
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 20px;
+    padding: 15px; /* first px is top bottom, second is left and right*/
+    text-align: center;
+    width: 25%;  /*changes the width of the box, so doesn't take up entire screen */
+    margin: 20px auto;
+    margin-top:30px;
+    position: relative;  
+    overflow: hidden;    
+}
+
+#sidebar {
+    background: #d1ecff;
+    border: 5px double rgb(0, 61, 101);
+    padding: 15px;
+    margin-right: 20px; 
+    box-sizing: border-box;
+    flex: 0 0 300px; /* fixed width for sidebar */
+}
+
+#sidebar h3{
+    text-align: center;
+    padding: 10px;
+    margin: 5px auto;
+    margin-top: 10px;
+    background: none;
+    border: 3px dotted rgb(0, 61, 101);
+    width: 90%;  
+}
+#sidebar ol {
+    padding-left: 0;       /* Removes the default indent */
+    list-style-position: inside; /* Keeps the numbers aligned with the text */
+    text-align: center;
+    width: 100%;
+}
+
+#sidebar li {
+    margin: 5px 0;         /* Adds a little space between each score */
+    font-size: 1.1rem;     /* Optional: makes the numbers easier to read */
+}
+
+#main-content {
+    flex: 1;               /* Takes up the remaining space */
+    display: flex;
+    flex-direction: column;
+    align-items: center;   /* Centers the game text/buttons in the right column */
+}
+
+#main-content h3 {
+    width:80%;
+}
+
+
+/*slider*/
+.slider-container {
+    width: 300px;
+    margin-bottom: 10px;
+}
+#levelSlider {
+    width: 100%;
+}
+.tick-labels {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 5px;
+    font-weight: bold;
+}
+
+
+/* Dark Mode w/ Toggle */
+#toggle {
+    display: none; /* hide actual checkbox */
+}
+
+.toggle-label {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 26px;
+    background: rgb(173, 208, 234);
+    border-radius: 26px;
+    cursor: pointer;
+    transition: background 0.3s;
+    z-index: 1000;
+}
+
+.toggle-label::after {
+    content: '';
+    position: absolute;
+    left: 3px;
+    top: 3px;
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+    transition: transform 0.3s;
+}
+
+/* When checked, move the knob and change background */
+#toggle:checked + .toggle-label {
+    background: rgb(0, 61, 101);
+}
+
+#toggle:checked + .toggle-label::after {
+    transform: translateX(24px);
+}
+
+#toggle:checked ~ #container {
+    background-color: rgb(0, 61, 101);
+    border:solid rgb(173, 208, 234);
+    color: #eee;
+}
+
+#toggle:checked ~ #container p {
+    border-color: #000000;
+    color: #eee;
+    background-image: none;
+}
+
+#toggle:checked ~ #container h3 {
+    border: #000000;
+    color: #000000;
+    background-image:none;
+}
+#toggle:checked ~ h1 {
+    border: #000000;
+    color: #ffffff;
+    background-image: none;
+    background-color:rgb(0, 61, 101);
+}
+#toggle:checked ~ #sidebar h3 {
+    border: none;
+    color: #000000;
+}
+
+#toggle:checked ~ #sidebar p{
+    border: #ffffff;
+    color: #ffffff;
+    background-color:none;
+}
+
+
+
+#date, #currentTime {
+    color:black;
+    font-weight: bold;
+}
+

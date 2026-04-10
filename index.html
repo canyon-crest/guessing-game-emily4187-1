@@ -3,12 +3,35 @@
   <head>
     <title>JavaScript Number Guessing Game</title>
     <script src="script.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <p id="date"></p>
+    <!-- Dark mode toggle -->
+    <input type="checkbox" id="toggle">
+    <label for="toggle" class="toggle-label" aria-label="Toggle Dark Mode">🌙</label>
+    <h1>The Guessing Game</h1>
+  <div id="container">
+    <div id="sidebar">
+      <h3>Stats</h3>
+      <p id="wins">Total wins: 0</p>
+      <p id="avgScore">Average Score: </p>
+      <p id="fastest">Fastest Game: </p>
+      <p id="avgTime">Average Time: </p>
 
-    <h3>Level</h3>
-    <input type="radio" name="level" id="e" value="3" checked><label for="e">Easy</label>
+      <h3>Leaderboard</h3>
+      <ol>
+        <li name="leaderboard">--</li>
+        <li name="leaderboard">--</li>
+        <li name="leaderboard">--</li>
+      </ol>
+    </div>
+  <div id="main-content">
+    <p id="date"></p>
+    <p id="currentTime"></p>
+    <p id="gameClock">Elapsed time: 0.00 seconds</p>
+
+    <h3>Level: Select Difficulty</h3>
+    <input type="radio" name="level" id="e" value="3" checked> <label for="e">Easy</label>
     <input type="radio" name="level" id="m" value="10"><label for="m">Medium</label>
     <input type="radio" name="level" id="h" value="100"><label for="h">Hard</label>
 
@@ -18,18 +41,7 @@
     <input type="text" id="guess">
     <button id="guessBtn" disabled>Guess</button>
     <button id="giveUpBtn" disabled>Give Up</button>
-
-    <h3>Stats</h3>
-    <p id="wins">Total wins: 0</p>
-    <p id="avgScore">Average Score: </p>
-    <p id="fastest">Fastest Game: </p>
-    <p id="avgTime">Average Time: </p>
-
-    <h3>Leaderboard</h3>
-    <ol>
-      <li name="leaderboard">100</li>
-      <li name="leaderboard">100</li>
-      <li name="leaderboard">100</li>
-    </ol>
+  </div>
+  </div>
   </body>
 </html>
