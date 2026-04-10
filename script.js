@@ -24,6 +24,8 @@ const e = document.getElementById("e");
 const m = document.getElementById("m");
 const h = document.getElementById("h");
 
+const maxvalue = document.getElementById("maxvalue");
+const other = document.getElementById("o");
 
 let playerName = prompt("Enter your name:");
 if (playerName) {
@@ -83,7 +85,6 @@ for (let i = 0; i < document.getElementsByName("level").length; i++){
 }
 
 document.getElementById("maxvalue").style.display = "none";
-let other = document.getElementById("o")
 
 other.addEventListener("click",otherFunc);
 function otherFunc(){
@@ -132,7 +133,7 @@ function makeGuess(){
 
     if (guess == answer){
         msg.textContent = "Correct! " + playerName + " got it in " + guessCount + " tries.";
-
+        launchConfetti();
         updateScore(guessCount);
 
         let endTime = new Date().getTime();
@@ -222,4 +223,23 @@ function reset(){
     maxvalue.style.display = "none";
     maxvalue.value = "";
     e.checked = true;
+}
+
+//confetti
+function launchConfetti() {
+    const container = document.getElementById("confetti-container");
+    const colors = ["red", "blue", "yellow", "green", "purple", "orange"]; //colors for the pieces
+
+    for (let i = 0; i < 100; i++) { // 100 confetti pieces
+        let conf = document.createElement("div"); //create one small confetti element, a small div
+        conf.classList.add("confetti"); //give it styling class
+        conf.style.left = Math.random() * 100 + "vw"; //random horizontal position across screen
+        conf.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)]; //pick random color from the array on the top
+        conf.style.animationDuration = (Math.random() * 2 + 1.5) + "s";//randomize the speed a lil
+        container.appendChild(conf); // add it to the screen
+
+        setTimeout(() => {
+            conf.remove(); // remove the confetti after the animation ends
+        }, 3000);
+    }
 }

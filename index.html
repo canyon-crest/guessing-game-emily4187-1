@@ -25,29 +25,30 @@
         <li name="leaderboard">--</li>
       </ol>
     </div>
-  <div id="main-content">
-    <p id="date"></p>
-    <p id="currentTime"></p>
-    <p id="gameClock">Elapsed time: 0.00 seconds</p>
+    <div id="main-content">
+      <p id="date"></p>
+      <p id="currentTime"></p>
+      <p id="gameClock">Elapsed time: 0.00 seconds</p>
 
-    <h3>Level: Select Difficulty</h3>
-    <div id="levels">
-    <input type="radio" name="level" id="e" value="3" checked> <label for="e">Easy</label>
-    <input type="radio" name="level" id="m" value="10"><label for="m">Medium</label>
-    <input type="radio" name="level" id="h" value="100"><label for="h">Hard</label>
-    <input type="radio" name="level" id="o" value="1"><label for="o">Other</label>
-    <input type="text" id="maxvalue" placeholder="Enter Max Value">
-    </div>
+      <h3>Level: Select Difficulty</h3>
+      <div id="levels">
+        <input type="radio" name="level" id="e" value="3" checked> <label for="e">Easy</label>
+        <input type="radio" name="level" id="m" value="10"><label for="m">Medium</label>
+        <input type="radio" name="level" id="h" value="100"><label for="h">Hard</label>
+        <input type="radio" name="level" id="o" value="1"><label for="o">Other</label>
+        <input type="text" id="maxvalue" placeholder="Enter Max Value">
+      </div>
 
-    <button id="playBtn">Play</button>
+      <button id="playBtn">Play</button>
 
-    <h3 id="msg">Select a Level</h3>
-    <input type="text" id="guess">
-    <div id="buttonRow">
-    <button id="guessBtn" disabled>Guess</button>
-    <button id="giveUpBtn" disabled>Give Up</button>
+      <h3 id="msg">Select a Level</h3>
+      <input type="text" id="guess">
+      <div id="buttonRow">
+        <button id="guessBtn" disabled>Guess</button>
+        <button id="giveUpBtn" disabled>Give Up</button>
+      </div>
     </div>
   </div>
-  </div>
+  <div id="confetti-container"></div>
   </body>
 </html>
