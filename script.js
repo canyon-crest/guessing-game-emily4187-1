@@ -24,6 +24,7 @@ const e = document.getElementById("e");
 const m = document.getElementById("m");
 const h = document.getElementById("h");
 
+
 let playerName = prompt("Enter your name:");
 if (playerName) {
     playerName = playerName.charAt(0).toUpperCase() + playerName.slice(1).toLowerCase();
@@ -81,9 +82,32 @@ for (let i = 0; i < document.getElementsByName("level").length; i++){
     document.getElementsByName("level")[i].addEventListener("change", updateLevel);
 }
 
+document.getElementById("maxvalue").style.display = "none";
+let other = document.getElementById("o")
+
+other.addEventListener("click",otherFunc);
+function otherFunc(){
+    maxvalue.style.display = "block"
+}
+
+e.addEventListener("click",hideOther);
+m.addEventListener("click",hideOther);
+h.addEventListener("click",hideOther);
+function hideOther(){
+    maxvalue.style.display = "none";
+}
+
 function play(){
     updateLevel();
     startElapsedTimer();
+    let levels = document.getElementsByName("level");
+    for (let i = 0; i < levels.length; i++){
+        levels[i].disabled = true;
+    }
+    if (other.checked){
+        range = parseInt(maxvalue.value);
+    }
+    actualrange=range;
     answer = Math.floor(Math.random() * range) + 1;
     guessCount = 0;
 
@@ -94,11 +118,6 @@ function play(){
     guessBtn.disabled = false;
     giveUpBtn.disabled = false;
     playBtn.disabled = true;
-
-    let levels = document.getElementsByName("level");
-    for (let i = 0; i < levels.length; i++){
-        levels[i].disabled = true;
-    }
 }
 
 function makeGuess(){
@@ -184,11 +203,8 @@ function startElapsedTimer(){
 function giveUp(){
     msg.textContent = playerName + " gave up! Answer was " + answer;
 
-    updateScore(range);
-
     let endTime = new Date().getTime();
     times.push((endTime - startTime) / 1000);
-    updateTimers();
     reset();
 }
 
@@ -199,9 +215,11 @@ function reset(){
     guessBtn.disabled = true;
     giveUpBtn.disabled = true;
     playBtn.disabled = false;
-
-    let levels = document.getElementsByName("level");
-    for (let i = 0; i < levels.length; i++){
-        levels[i].disabled = false;
-    }
+    e.disabled = false;
+    h.disabled = false;
+    m.disabled = false;
+    other.disabled = false;
+    maxvalue.style.display = "none";
+    maxvalue.value = "";
+    e.checked = true;
 }

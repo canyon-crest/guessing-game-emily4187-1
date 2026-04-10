@@ -1,5 +1,6 @@
 body {
     background-color: rgb(216, 239, 255);
+    background-image: linear-gradient( rgb(179, 222, 255), rgb(216, 239, 255));
     text-align:center;
     list-style-position: inside;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
@@ -168,9 +169,9 @@ h3{
 }
 
 #toggle:checked ~ #container h3 {
-    border: #000000;
-    color: #000000;
-    background-image:none;
+    border: #ffffff;
+    color: #ffffff;
+    background-color:rgb(10, 30, 60);
 }
 #toggle:checked ~ h1 {
     border: 5px solid white;
