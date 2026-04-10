@@ -206,6 +206,7 @@ function giveUp(){
 
     let endTime = new Date().getTime();
     times.push((endTime - startTime) / 1000);
+    updateScore(range);
     reset();
 }
 
