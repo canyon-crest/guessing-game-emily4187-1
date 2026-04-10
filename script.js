@@ -4,6 +4,7 @@ let range = 0;
 const scores = [];
 let startTime = 0;
 let times = [];
+let timerInterval = null;
 
 const date = document.getElementById('date');
 const currentTime = document.getElementById('currentTime');
@@ -82,7 +83,7 @@ for (let i = 0; i < document.getElementsByName("level").length; i++){
 
 function play(){
     updateLevel();
-
+    startElapsedTimer();
     answer = Math.floor(Math.random() * range) + 1;
     guessCount = 0;
 
@@ -101,7 +102,6 @@ function play(){
 }
 
 function makeGuess(){
-    updateElapsedDisplay();
     let guess = parseInt(guessInput.value);
 
     if (isNaN(guess) || guess < 1 || guess > range){
@@ -119,7 +119,7 @@ function makeGuess(){
         let endTime = new Date().getTime();
         times.push((endTime - startTime) / 1000);
         updateTimers();
-
+        clearInterval(timerInterval);
         reset();
     }
     else if (guess < answer){
@@ -171,11 +171,14 @@ function updateTimers(){
     avgTime.textContent = "Average Time: " + (sum / times.length).toFixed(2);
 }
 
-function updateElapsedDisplay(){
-    let now = new Date().getTime();
-    let elapsed = (now - startTime) / 1000;
-    document.getElementById("gameClock").textContent =
-        "Elapsed time: " + elapsed.toFixed(2) + " seconds";
+function startElapsedTimer(){
+    timerInterval = setInterval(() => {
+        let now = new Date().getTime();
+        let elapsed = (now - startTime) / 1000;
+
+        document.getElementById("gameClock").textContent =
+            "Elapsed time: " + elapsed.toFixed(2) + " seconds";
+    }, 100);
 }
 
 function giveUp(){
@@ -186,11 +189,11 @@ function giveUp(){
     let endTime = new Date().getTime();
     times.push((endTime - startTime) / 1000);
     updateTimers();
-
     reset();
 }
 
 function reset(){
+    clearInterval(timerInterval);
     guessInput.value = "";
 
     guessBtn.disabled = true;

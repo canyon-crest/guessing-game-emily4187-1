@@ -8,7 +8,7 @@
   <body>
     <!-- Dark mode toggle -->
     <input type="checkbox" id="toggle">
-    <label for="toggle" class="toggle-label" aria-label="Toggle Dark Mode">🌙</label>
+    <label for="toggle" class="toggle-label" aria-label="Toggle Dark Mode"></label>
     <h1>The Guessing Game</h1>
   <div id="container">
     <div id="sidebar">
@@ -31,16 +31,20 @@
     <p id="gameClock">Elapsed time: 0.00 seconds</p>
 
     <h3>Level: Select Difficulty</h3>
+    <div id="levels">
     <input type="radio" name="level" id="e" value="3" checked> <label for="e">Easy</label>
     <input type="radio" name="level" id="m" value="10"><label for="m">Medium</label>
     <input type="radio" name="level" id="h" value="100"><label for="h">Hard</label>
+    </div>
 
     <button id="playBtn">Play</button>
 
     <h3 id="msg">Select a Level</h3>
     <input type="text" id="guess">
+    <div id="buttonRow">
     <button id="guessBtn" disabled>Guess</button>
     <button id="giveUpBtn" disabled>Give Up</button>
+    </div>
   </div>
   </div>
   </body>

@@ -21,7 +21,7 @@ h1 {
     background-color: rgb(154, 202, 238);
     background-image: linear-gradient(to bottom right, rgb(109, 163, 205), rgb(194, 230, 255));
     /* margin is outside of the box, padding is inside of the box */
-    border: Solid 3px rgb(0, 61, 101); /* solid can be replaced by dashed*/
+    border: Solid 5px rgb(0, 61, 101); /* solid can be replaced by dashed*/
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     border-radius: 20px;
     padding: 15px; /* first px is top bottom, second is left and right*/
@@ -88,22 +88,21 @@ h3{
 }
 
 
-/*slider*/
-.slider-container {
-    width: 300px;
-    margin-bottom: 10px;
-}
-#levelSlider {
-    width: 100%;
-}
-.tick-labels {
+#buttonRow {
     display: flex;
-    justify-content: space-between;
-    padding: 0 5px;
-    font-weight: bold;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 10px;
 }
 
-
+#levels {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom:10px;
+}
 /* Dark Mode w/ Toggle */
 #toggle {
     display: none; /* hide actual checkbox */
@@ -113,25 +112,37 @@ h3{
     position: fixed;
     top: 20px;
     right: 20px;
-    width: 50px;
-    height: 26px;
+    width: 55px;
+    height: 25px;
     background: rgb(173, 208, 234);
-    border-radius: 26px;
+    border-radius: 30px;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: 0.3s;
     z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* starts left */
+    padding: 3px;
 }
 
 .toggle-label::after {
-    content: '';
+    content: "🌙";
     position: absolute;
-    left: 3px;
+    left: 4px;
     top: 3px;
-    width: 20px;
-    height: 20px;
+
+    width: 24px;
+    height: 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 14px;
     background: white;
     border-radius: 50%;
-    transition: transform 0.3s;
+    transition: transform 0.3s ease;
 }
 
 /* When checked, move the knob and change background */
@@ -140,12 +151,13 @@ h3{
 }
 
 #toggle:checked + .toggle-label::after {
-    transform: translateX(24px);
+    transform: translateX(30px);
+    content: "☀️";
 }
 
 #toggle:checked ~ #container {
     background-color: rgb(0, 61, 101);
-    border:solid rgb(173, 208, 234);
+    border: 5px solid rgb(255, 255, 255);
     color: #eee;
 }
 
@@ -161,26 +173,32 @@ h3{
     background-image:none;
 }
 #toggle:checked ~ h1 {
-    border: #000000;
+    border: 5px solid white;
     color: #ffffff;
     background-image: none;
     background-color:rgb(0, 61, 101);
 }
-#toggle:checked ~ #sidebar h3 {
-    border: none;
-    color: #000000;
+#toggle:checked ~ #container #sidebar {
+    background-color: rgb(10, 30, 60);
+    color: white;
+    border: 5px double white;
 }
 
-#toggle:checked ~ #sidebar p{
+#toggle:checked ~ #container #sidebar h3 {
+    border: solid white;
+    color: #ffffff;
+}
+
+#toggle:checked ~ #container #sidebar p{
     border: #ffffff;
     color: #ffffff;
     background-color:none;
 }
 
 
-
 #date, #currentTime {
     color:black;
     font-weight: bold;
+    margin-bottom:1px;
 }
 
